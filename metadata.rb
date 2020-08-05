@@ -1,9 +1,9 @@
 name             'users'
-maintainer       'Chef Software, Inc.'
-maintainer_email 'cookbooks@chef.io'
+maintainer       'robert thimons'
+maintainer_email 'tech@thimons.info'
 license          'Apache-2.0'
 description      'Creates users from a databag search'
-version          '5.4.0'
+version          '5.4.1'
 
 %w( ubuntu debian redhat centos fedora freebsd mac_os_x scientific oracle amazon zlinux suse opensuse opensuseleap aix ).each do |os|
   supports os

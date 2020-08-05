@@ -151,11 +151,7 @@ action :create do
   end
 
   group new_resource.group_name do
-    if platform_family?('mac_os_x')
-      gid new_resource.group_id unless gid_used?(new_resource.group_id)
-    else
-      gid new_resource.group_id
-    end
+    gid new_resource.group_id unless gid_used?(new_resource.group_id)
     members users_groups[new_resource.group_name]
   end
 end
