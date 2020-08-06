@@ -1,6 +1,21 @@
 module Users
   # Helpers for Users
   module Helpers
+    # checks if the group id exists
+    #
+    # @return [Boolean]
+    def gids_used?(groupname)
+      results = Mixlib::ShellOut.new("getent groups |grep #{groupname}| awk -F: '{print $3}'").run_command
+      results.stdout.chomp
+    rescue
+      'none'
+    end
+    # Determines if the provided gid is already used on the system
+    #
+    # @return [Boolean]
+    def gid_is_used?(gid, gname)
+      gid == gids_used?(gname)
+    end
     # Checks fs type.
     #
     # @return [String]
